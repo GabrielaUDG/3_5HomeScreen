@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Asegura la inicialización correcta de widgets
+  await Firebase.initializeApp(); // Inicializa Firebase
   runApp(const MyApp());
 }
 
@@ -31,12 +34,12 @@ class HomeScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/background.jpg"), // imagen en assets
+                image: AssetImage("assets/background.jpg"), // Imagen en assets
                 fit: BoxFit.cover,
               ),
             ),
             child: Container(
-              color: Colors.black.withOpacity(0.5), // filtro negro con opacidad
+              color: Colors.black.withOpacity(0.5), // Filtro negro con opacidad
             ),
           ),
           // Contenido sobre la imagen de fondo
@@ -55,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white, 
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -63,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                   'Hello World', // Mensaje de bienvenida
                   style: TextStyle(
                     fontSize: 24,
-                    color: Colors.white, 
+                    color: Colors.white,
                   ),
                 ),
               ],
